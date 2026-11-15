@@ -1,0 +1,148 @@
+/*
+Theme: Den Lurmon Underground (Static)
+*/
+
+:root {
+    --black: #0a0a0a;
+    --acid: #39ff14;
+    --font-main: 'Stratos', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--black);
+    color: #fff;
+    font-family: var(--font-main);
+    overflow-x: hidden;
+}
+
+.glitch {
+    font-size: 8vw;
+    text-align: center;
+    margin-top: 100px;
+    position: relative;
+    color: var(--black);
+    text-shadow: 2px 2px 0 var(--acid);
+}
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 red;
+    animation: glitch-anim 3s infinite linear;
+}
+.glitch::after {
+    left: -2px;
+    text-shadow: 2px 0 blue;
+    animation: glitch-anim-2 3s infinite linear;
+}
+
+.bg-video {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: -1;
+}
+
+.nav {
+    position: fixed;
+    top: 20px; right: 20px;
+    z-index: 100;
+}
+.nav a {
+    color: #fff;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+.nav a:hover {
+    color: var(--acid);
+}
+
+.btn-play {
+    margin-top: 300px;
+    padding: 15px 40px;
+    background: transparent;
+    border: 1px solid var(--acid);
+    color: var(--acid);
+    font-family: var(--font-main);
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.btn-play:hover {
+    background: var(--acid);
+    color: var(--black);
+}
+
+.site-main {
+    padding: 100px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+.site-header h1 {
+    font-size: 48px;
+    margin-bottom: 40px;
+    color: var(--acid);
+}
+.content-area h2 {
+    font-size: 48px;
+    margin-bottom: 40px;
+    color: var(--acid);
+}
+.post h3 {
+    color: #ccc;
+    margin-bottom: 10px;
+}
+.post p {
+    color: #999;
+    margin-bottom: 20px;
+}
+.post a {
+    color: var(--acid);
+    text-decoration: none;
+}
+.site-footer {
+    padding: 50px;
+    border-top: 1px solid #333;
+    text-align: center;
+}
+
+.player iframe {
+    border-radius: 12px;
+    width: 100%;
+    height: 300px;
+    border: none;
+    margin-top: 20px;
+}
+
+@keyframes glitch-anim {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
